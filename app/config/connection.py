@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy import sessionmaker
+from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
 
 # Parametros de conexao com MySQL
@@ -15,7 +15,7 @@ DATABASE_URL = f"mysql+pymysql://{db_user}:{db_password}@{db_host}:{db_port}/{db
 
 # Conectando banco de dados
 db = create_engine(DATABASE_URL)
-Session = sessionmaker
+Session = sessionmaker()
 session = Session()
 
 @contextmanager
